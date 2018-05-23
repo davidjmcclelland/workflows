@@ -1,0 +1,10 @@
+{
+  "name": "gulp",
+  "version": "0.0.1",
+  "description": "workflow tutorial",
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "David J McClelland"
+}
