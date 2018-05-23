@@ -5,6 +5,7 @@
 # IntelliJ project files
 .idea
 *.iml
+*.ipr
 out
 gen
 .DS_Store
@@ -12,3 +13,5 @@ node_modules
 .tmp
 .sass-cache
 builds/**/images/*
+/Ex_Files_WPW_GGB.zip
+/Ex_Files_WPW_GGB/
