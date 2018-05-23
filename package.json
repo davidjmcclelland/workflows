@@ -4,11 +4,15 @@
   "description": "workflow tutorial",
   "repository": {
     "type": "git",
-    "url": "?.git"
+    "url": "https://github.com/davidjmcclelland/workflows.git"
   },
   "author": "David J McClelland",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-util": "^3.0.8"
+    "gulp-coffee": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "install": "^0.11.0",
+    "npm": "^6.0.1",
+    "sudo": "^1.0.3"
   }
 }
