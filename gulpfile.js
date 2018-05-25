@@ -1,12 +1,18 @@
 // tell node to bring in the gulp library with a require statement
 // npm install sudo npm install --save-dev gulp
 var gulp = require('gulp'),
-    // npm install sudo npm install --save-dev gulp-util
+    // sudo npm install --save-dev gulp
+    // sudo npm install --save-dev gulp-util
     gutil = require('gulp-util'),
-    // npm install sudo npm install --save-dev gulp-coffee
+    // sudo npm install --save-dev gulp-coffee
     coffee = require('gulp-coffee'),
-    // npm install sudo npm install --save-dev gulp-concat
-    concat = require('gulp-concat');
+    // sudo npm install --save-dev gulp-concat
+    concat = require('gulp-concat'),
+    // sudo npm install --save-dev karma
+    testRunner = require('karma').Server;
+    // sudo npm i --save-dev jasmine-core karma-jasmine karma-chrome-launcher
+    // sudo npm install -g karma-cli
+    //browserRunner = require('jasmine').Server;
 
 var coffeeSources = ['components/coffee/tagline.coffee'];
 //var coffeeSources = ['*.coffee'];
@@ -38,6 +44,27 @@ gulp.task('concat', function () {
         .pipe(concat('script.js'))
             .pipe(gulp.dest('builds/development/js'))
 });
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+    new testRunner({
+        configFile:  __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', function (done) {
+    new testRunner({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
+});
+
+gulp.task('default', ['tdd']);
 
 /*
 result:
