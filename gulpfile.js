@@ -10,12 +10,16 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     // sudo npm install --save-dev karma
     testRunner = require('karma').Server;
+    // sudo npm install browserify --save-dev
+    browserify = require('gulp-browserify');
     // sudo npm i --save-dev jasmine-core karma-jasmine karma-chrome-launcher
     // sudo npm install -g karma-cli
-    //sudo npm install karma-phantomjs-launcher --save-dev
-    //sudo npm install karma-html-reporter --save-dev
-    //sudo npm install karma-junit-reporter --save-dev
-    //sudo npm install karma-coverage --save-dev
+    // sudo npm install karma-phantomjs-launcher --save-dev
+    // sudo npm install karma-html-reporter --save-dev
+    // sudo npm install karma-junit-reporter --save-dev
+    // sudo npm install karma-coverage --save-dev
+    // sudo npm install jquery --save-dev
+    // sudo npm install mustache --save-dev
 
 
 
@@ -43,11 +47,19 @@ gulp.task('coffee', function () {
         .pipe(gulp.dest('components/scripts'))
 });
 
+gulp.task('js', function() {
+    gulp.src(jsSources)
+        .pipe(concat('script.js'))
+        .pipe(browserify())
+        .pipe(gulp.dest('builds/development/js'))
+});
+
 // transpile, copy over and rename coffee script file to js
 gulp.task('concat', function () {
     gulp.src(jsSources)
         .pipe(concat('script.js'))
-            .pipe(gulp.dest('builds/development/js'))
+        .pipe(browserify())
+        .pipe(gulp.dest('builds/development/js'))
 });
 
 /**
