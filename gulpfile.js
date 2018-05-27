@@ -12,7 +12,12 @@ var gulp = require('gulp'),
     testRunner = require('karma').Server;
     // sudo npm i --save-dev jasmine-core karma-jasmine karma-chrome-launcher
     // sudo npm install -g karma-cli
-    //browserRunner = require('jasmine').Server;
+    //sudo npm install karma-phantomjs-launcher --save-dev
+    //sudo npm install karma-html-reporter --save-dev
+    //sudo npm install karma-junit-reporter --save-dev
+    //sudo npm install karma-coverage --save-dev
+
+
 
 var coffeeSources = ['components/coffee/tagline.coffee'];
 //var coffeeSources = ['*.coffee'];
